@@ -1,0 +1,155 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Section with Bootstrap 5</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+   <section class="container mt-5">
+    <div class="bg-secondary text-light">
+        <ul class="navbar bg-body-tertiary fixed-top nav nav-pills nav-fill mb-3">
+            <li class="nav-item d-flex justify-content-between col-3">
+                <a class="nav-link d-flex justify-content-center" id="tab-doc-obligatorios" data-bs-toggle="pill" href="#doc-obligatorios">
+                    <p class="mb-0">Documentos Obligatorios</p>
+                </a>
+                <button class="navbar-toggler mx-2 my-auto d-none" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu1">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </li>
+            <li class="nav-item d-flex justify-content-between col-3">
+                <a class="nav-link d-flex justify-content-center" id="tab-doc-opcionales" data-bs-toggle="pill" href="#doc-opcionales">
+                    <p class="mb-0">Documentos Opcionales</p>
+                </a>
+                <button class="navbar-toggler mx-2 my-auto d-none" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu2">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </li>
+            <li class="nav-item d-flex justify-content-between col-3">
+                <a class="nav-link d-flex justify-content-center" id="tab-opcion3" data-bs-toggle="pill" href="#opcion3">
+                    <p class="mb-0">Opción 3</p>
+                </a>
+                <button class="navbar-toggler mx-2 my-auto d-none" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu3">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </li>
+            <li class="nav-item d-flex justify-content-between col-3">
+                <a class="nav-link d-flex justify-content-center" id="tab-opcion4" data-bs-toggle="pill" href="#opcion4">
+                    <p class="mb-0">Opción 4</p>
+                </a>
+                <button class="navbar-toggler mx-2 my-auto d-none" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu4">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </li>
+          </ul>
+    </div>
+    
+
+    <div class="tab-content">
+      <!-- Tab 1 -->
+      <div class="tab-pane fade show active" id="doc-obligatorios">
+        <h3>Documentos Obligatorios</h3>
+        <div class="progress" id="progressBar1">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 0%"></div>
+        </div>
+        <div id="tableContent1" class="d-none">
+            <p>Contenido sobre documentos obligatorios.</p>
+        </div>
+        <!-- Offcanvas Menu 1 -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu1">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Menú Documentos Obligatorios</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="list-group">
+              <li class="list-group-item">Documento 1</li>
+              <li class="list-group-item">Documento 2</li>
+              <li class="list-group-item">Documento 3</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2 -->
+      <div class="tab-pane fade" id="doc-opcionales">
+        <h3>Documentos Opcionales</h3>
+        <div class="progress" id="progressBar2">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 0%"></div>
+        </div>
+        <div id="tableContent2" class="d-none">
+            <p>Contenido sobre documentos opcionales.</p>
+        </div>
+        <!-- Offcanvas Menu 2 -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu2">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Menú Documentos Opcionales</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="list-group">
+              <li class="list-group-item">Opción A</li>
+              <li class="list-group-item">Opción B</li>
+              <li class="list-group-item">Opción C</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3 -->
+      <div class="tab-pane fade" id="opcion3">
+        <h3>Opción 3</h3>
+        <div class="progress" id="progressBar3">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 0%"></div>
+        </div>
+        <div id="tableContent3" class="d-none">
+            <p>Contenido sobre la opción 3.</p>
+        </div>
+        <!-- Offcanvas Menu 3 -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu3">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Menú Opción 3</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="list-group">
+              <li class="list-group-item">Acción 1</li>
+              <li class="list-group-item">Acción 2</li>
+              <li class="list-group-item">Acción 3</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 4 -->
+      <div class="tab-pane fade" id="opcion4">
+        <h3>Opción 4</h3>
+        <div class="progress" id="progressBar4">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 0%"></div>
+        </div>
+        <div id="tableContent4" class="d-none">
+            <p>Contenido sobre la opción 4.</p>
+        </div>
+        <!-- Offcanvas Menu 4 -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu4">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Menú Opción 4</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="list-group">
+              <li class="list-group-item">Elemento 1</li>
+              <li class="list-group-item">Elemento 2</li>
+              <li class="list-group-item">Elemento 3</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="../js/tabs.js"></script>
+</body>
+</html>
