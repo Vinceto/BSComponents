@@ -1,13 +1,13 @@
-const tabs = document.querySelectorAll('.nav-link');
+const tabs_component = document.querySelectorAll('.nav-link');
 const buttons = document.querySelectorAll('.navbar-toggler');
 
 // Tiempo total de carga en milisegundos (3 segundos)
 const loadTime = 3000;
 
-tabs.forEach((tab, index) => {
+tabs_component.forEach((tab, index) => {
     tab.addEventListener('shown.bs.tab', function () {
-        // Desactivar todos los tabs y botones
-        tabs.forEach(t => t.classList.remove('active'));
+        // Desactivar todos los tabs_component y botones
+        tabs_component.forEach(t => t.classList.remove('active'));
         buttons.forEach(btn => {
             btn.classList.add('d-none'); // Ocultar todos los botones
             btn.classList.remove('btn-primary'); // Remover la clase btn-primary de todos los botones
