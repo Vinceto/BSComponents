@@ -23,12 +23,16 @@ tabs.forEach((tab, index) => {
     });
 });
 
-function showProgressBar(index, totalTime) {
+async function showProgressBar(index, totalTime) {
+    await resetProgressBar(); // Se asegura de que todas las barras se hayan reseteado primero
+    console.log('Ahora puedes continuar con el siguiente paso.');
+
     const progressBar = document.getElementById(`progressBar${index}`).querySelector('.progress-bar');
     const tableContent = document.getElementById(`tableContent${index}`);
-    
+    if (progressBar.parentNode.classList.contains('fade')) {
+        progressBar.parentNode.classList.remove('fade'); 
+    }
     // Mostrar el progress bar y ocultar la tabla
-    progressBar.style.width = '0%';
     tableContent.classList.add('d-none');
 
     let startTime = 0;
@@ -43,7 +47,34 @@ function showProgressBar(index, totalTime) {
         if (progress >= 100) {
             clearInterval(timer); // Detener la barra de progreso al alcanzar el 100%
             progressBar.style.width = '100%';
-            tableContent.classList.remove('d-none'); // Mostrar la tabla con los datos cargados            
+            tableContent.classList.remove('d-none'); // Mostrar la tabla con los datos cargados       
+            progressBar.parentNode.classList.add('fade');     
         }
     }, interval);
+}
+
+async function resetProgressBar() {
+    // Obtiene todas las barras de progreso en la página
+    const progressBars = document.querySelectorAll('progress');
+
+    // Espera a que todas las barras de progreso se reseteen
+    for (let progressBar of progressBars) {
+        await resetSingleProgressBar(progressBar);
+    }
+
+    // Después de que todas las barras se hayan reseteado
+    console.log('Todas las barras de progreso se han reseteado.');
+}
+
+function resetSingleProgressBar(progressBar) {
+    return new Promise((resolve) => {
+        // Simula un tiempo de reset (por ejemplo, 1 segundo)
+        setTimeout(() => {
+            // Resetea la barra de progreso
+            progressBar.value = 0;
+            progressBar.style.width = '0%';
+            console.log(`Progress bar reseteada: ${progressBar.id}`);
+            resolve(); // Resuelve la promesa cuando se complete el reset
+        }, 1000); // Puedes ajustar el tiempo según sea necesario
+    });
 }
