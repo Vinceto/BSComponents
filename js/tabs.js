@@ -1,27 +1,24 @@
-const tabs_component = document.querySelectorAll('.nav-link');
-const buttons = document.querySelectorAll('.navbar-toggler');
+function initializeComponent() {
+    const tabs = document.querySelectorAll('.nav-link');
+    const buttons = document.querySelectorAll('.navbar-toggler');
+    const loadTime = 3000;
 
-// Tiempo total de carga en milisegundos (3 segundos)
-const loadTime = 3000;
+    tabs.forEach((tab, index) => {
+        tab.addEventListener('shown.bs.tab', function () {
+            tabs.forEach(t => t.classList.remove('active'));
+            buttons.forEach(btn => {
+                btn.classList.add('fade');
+                btn.classList.remove('btn-primary');
+            });
 
-tabs_component.forEach((tab, index) => {
-    tab.addEventListener('shown.bs.tab', function () {
-        // Desactivar todos los tabs_component y botones
-        tabs_component.forEach(t => t.classList.remove('active'));
-        buttons.forEach(btn => {
-            btn.classList.add('d-none'); // Ocultar todos los botones
-            btn.classList.remove('btn-primary'); // Remover la clase btn-primary de todos los botones
+            tab.classList.add('active');
+            buttons[index].classList.remove('fade');
+            buttons[index].classList.add('btn-primary');
+
+            showProgressBar(index + 1, loadTime);
         });
-        
-        // Activar el tab y el botón correspondientes
-        tab.classList.add('active');
-        buttons[index].classList.remove('d-none');
-        buttons[index].classList.add('btn-primary');
-
-        // Simular la carga de datos y mostrar el progress bar
-        showProgressBar(index + 1, loadTime);
     });
-});
+}
 
 async function showProgressBar(index, totalTime) {
     await resetProgressBar(); // Se asegura de que todas las barras se hayan reseteado primero
